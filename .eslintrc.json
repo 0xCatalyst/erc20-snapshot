@@ -178,7 +178,11 @@
     "no-mixed-operators": [
       "error",
       {
-        "groups": [["==", "!=", "===", "!==", ">", ">=", "<", "<="], ["&&", "||"], ["in", "instanceof"]],
+        "groups": [
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
         "allowSamePrecedence": true
       }
     ],

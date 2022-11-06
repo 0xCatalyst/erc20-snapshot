@@ -18,7 +18,7 @@ const findTypeFromCache = (cache, wallet) => {
   return null;
 };
 
-module.exports.addType = async balances => {
+module.exports.addType = async (balances) => {
   if (Config.checkIfContract.toLowerCase() !== "yes") {
     return balances;
   }
@@ -47,7 +47,7 @@ module.exports.addType = async balances => {
 
   const knownTypes = enumerable
     .from(balances)
-    .select(x => {
+    .select((x) => {
       return { wallet: x.wallet, type: x.type };
     })
     .toArray();
@@ -56,7 +56,7 @@ module.exports.addType = async balances => {
 
   return enumerable
     .from(balances)
-    .orderBy(x => x.type)
-    .thenByDescending(x => parseFloat(x.balance))
+    .orderBy((x) => x.type)
+    .thenByDescending((x) => parseFloat(x.balance))
     .toArray();
 };

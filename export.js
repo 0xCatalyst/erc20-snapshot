@@ -15,7 +15,11 @@ module.exports.exportBalances = async (symbol, balances, format) => {
 
     const writer = objectToCsv({
       path: file,
-      header: [{ id: "wallet", title: "Wallet" }, { id: "balance", title: "Balance" }, { id: "type", title: "Type" }]
+      header: [
+        { id: "wallet", title: "Wallet" },
+        { id: "balance", title: "Balance" },
+        { id: "type", title: "Type" }
+      ]
     });
 
     console.log("Exporting CSV");

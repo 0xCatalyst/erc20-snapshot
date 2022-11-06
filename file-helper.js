@@ -10,7 +10,7 @@ const makeDirectoryAsync = promisify(fs.mkdir);
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);
 
-const ensureDirectoryExists = async directory => {
+const ensureDirectoryExists = async (directory) => {
   try {
     await makeDirectoryAsync(directory, { recursive: true });
   } catch (err) {
@@ -18,7 +18,7 @@ const ensureDirectoryExists = async directory => {
   }
 };
 
-module.exports.ensureDirectory = async directory => {
+module.exports.ensureDirectory = async (directory) => {
   ensureDirectoryExists(directory);
 };
 
@@ -27,7 +27,7 @@ module.exports.writeFile = async (filePath, data) => {
   await writeFileAsync(filePath, JSON.stringify(data, null, 2));
 };
 
-module.exports.parseFile = async filePath => {
+module.exports.parseFile = async (filePath) => {
   if (await existsAsync(filePath)) {
     const contents = await readFileAsync(filePath);
     return JSON.parse(contents.toString());
